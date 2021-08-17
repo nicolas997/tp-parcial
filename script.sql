@@ -1,0 +1,9 @@
+CREATE TABLE client (
+    id VARCHAR(255) PRIMARY KEY,
+    country VARCHAR(5) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phoneNumber VARCHAR(15) DEFAULT NULL,
+    registrationDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    lastPurchaseDate TIMESTAMP NULL DEFAULT NULL,
+    notificationChannel VARCHAR(32) NOT NULL DEFAULT 'email'
+);
