@@ -22,14 +22,15 @@ public class Rider implements WithId {
     String idNumber;
 
     String email;
+    String password;
 
     Instant registrationDate;
 
     public Rider (String firstName, String lastName,
                   Country country, String idType, String idNumber,
-                  String email) {
+                  String email, String password) {
         this(UUID.randomUUID().toString(), firstName, lastName,
-            country, idType, idNumber, email, Instant.now());
+            country, idType, idNumber, email, password, Instant.now());
     }
 
     @Override

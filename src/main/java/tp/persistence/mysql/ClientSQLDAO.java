@@ -30,8 +30,10 @@ public class ClientSQLDAO implements ClientDAO {
             if (resultSet.next()) {
                 Client client = new Client(
                         resultSet.getString("id"),
+                        resultSet.getString("name"),
                         Country.valueOf(resultSet.getString("country")),
                         resultSet.getString("email"),
+                        resultSet.getString("password"),
                         resultSet.getString("phoneNumber"),
                         resultSet.getTimestamp("registrationDate").toInstant(),
                         ResultSetUtils.timestampToInstant(resultSet.getTimestamp("lastPurchaseDate")),

@@ -16,9 +16,11 @@ import java.util.UUID;
 public class Client implements WithId {
 
     String id;
+    String name;
 
     Country country;
     String email;
+    String password;
     String phoneNumber;
 
     Instant registrationDate;
@@ -30,8 +32,8 @@ public class Client implements WithId {
     Float addressLatitude;
     Float addressLongitude;
 
-    public Client (Country country, String email, String phoneNumber, NotificationChannel notificationChannel, String address) {
-        this(UUID.randomUUID().toString(), country, email, phoneNumber, Instant.now(), null,
+    public Client (String name, Country country, String email, String password, String phoneNumber, NotificationChannel notificationChannel, String address) {
+        this(name, UUID.randomUUID().toString(), country, email, password, phoneNumber, Instant.now(), null,
                 notificationChannel, null, null, null);
 
         GoogleGeocodeResult geocodeResult = GoogleApiClient.getInstance().geocodeAddress(address);

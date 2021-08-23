@@ -29,7 +29,7 @@ public class TPApplication {
 
     public static void main(String[] args) {
 
-        Client clientOne = new Client(Country.ARG, "client-one@client.com", "1154880546",
+        Client clientOne = new Client("juan", Country.ARG, "client-one@client.com", "pw1", "1154880546",
                 EmailNotificationChannel.getInstance(), "9 de Julio, Buenos Aires");
 
         String clientId = "f71c20ee-576e-41fb-a287-a6bafbe8fafc";
@@ -59,17 +59,17 @@ public class TPApplication {
 
         Rider riderOne = new Rider("RiderOne", "RiderOne",
                 Country.ARG, "DNI", "35118479",
-                "rider-one@rider.com");
+                "rider-one@rider.com", "pw2");
         Rider riderTwo = new Rider("RiderTwo", "RiderTwo",
                 Country.ARG, "DNI", "380484776",
-                "rider-one@rider.com");
+                "rider-one@rider.com", "pw3");
 
         riderDAO.insert(riderOne);
         riderDAO.insert(riderTwo);
 
-        Client clientOne = new Client(Country.ARG, "client-one@client.com", "1154880546",
+        Client clientOne = new Client("juan", Country.ARG, "client-one@client.com", "pw1", "1154880546",
                 EmailNotificationChannel.getInstance(), "9 de Julio, Buenos Aires");
-        Client clientTwo = new Client(Country.ARG, "client-two@client.com", "1150488073",
+        Client clientTwo = new Client("ana", Country.ARG, "client-two@client.com", "pw4", "1150488073",
                 PhoneNotificationChannel.getInstance(), "25 de Mayo, Buenos Aires, Argentina");
 
         clientDAO.insert(clientOne);
