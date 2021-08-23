@@ -2,6 +2,8 @@ package tp.model.client;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import tp.external.google.GoogleApiClient;
+import tp.external.google.GoogleGeocodeResult;
 import tp.model.client.notification.NotificationChannel;
 import tp.model.utils.Country;
 import tp.model.utils.WithId;
@@ -24,8 +26,23 @@ public class Client implements WithId {
 
     NotificationChannel notificationChannel;
 
-    public Client (Country country, String email, String phoneNumber, NotificationChannel notificationChannel) {
-        this(UUID.randomUUID().toString(), country, email, phoneNumber, Instant.now(), null, notificationChannel);
+    String displayableAddress;
+    Float addressLatitude;
+    Float addressLongitude;
+
+    public Client (Country country, String email, String phoneNumber, NotificationChannel notificationChannel, String address) {
+        this(UUID.randomUUID().toString(), country, email, phoneNumber, Instant.now(), null,
+                notificationChannel, null, null, null);
+
+        GoogleGeocodeResult geocodeResult = GoogleApiClient.getInstance().geocodeAddress(address);
+        if (geocodeResult == null) {
+            // no se pudo encontrar la direccion
+            throw new RuntimeException("address " + address + " was not found, try again");
+        } else {
+            this.displayableAddress = geocodeResult.getFormattedAddress();
+            this.addressLatitude    = geocodeResult.getLatitude();
+            this.addressLongitude   = geocodeResult.getLongitude();
+        }
     }
 
     public void sendNotification(String notificationContent) {
@@ -44,7 +61,10 @@ public class Client implements WithId {
                 .append("Email :: ").append(email).append("\n")
                 .append("Phone :: ").append(phoneNumber).append("\n")
                 .append("Channel :: ").append(getNotificationChannel().getName()).append("\n")
-                .append("Country :: ").append(country.name());
+                .append("Country :: ").append(country.name()).append("\n")
+                .append("Address :: ").append(displayableAddress)
+                    .append(" [")
+                    .append(addressLatitude).append("; ").append(addressLongitude).append("]");
 
 
         return builder.toString();

@@ -1,5 +1,8 @@
 package tp;
 
+import com.mashape.unirest.http.utils.URLParamEncoder;
+import tp.external.google.GoogleApiClient;
+import tp.external.google.GoogleGeocodeResult;
 import tp.model.client.Client;
 import tp.model.client.notification.EmailNotificationChannel;
 import tp.model.client.notification.PhoneNotificationChannel;
@@ -26,8 +29,8 @@ public class TPApplication {
 
     public static void main(String[] args) {
 
-        //Client clientOne = new Client(Country.ARG, "client-one@client.com", "1154880546",
-        //        EmailNotificationChannel.getInstance());
+        Client clientOne = new Client(Country.ARG, "client-one@client.com", "1154880546",
+                EmailNotificationChannel.getInstance(), "9 de Julio, Buenos Aires");
 
         String clientId = "f71c20ee-576e-41fb-a287-a6bafbe8fafc";
         ClientDAO dao = new ClientSQLDAO();
@@ -65,9 +68,9 @@ public class TPApplication {
         riderDAO.insert(riderTwo);
 
         Client clientOne = new Client(Country.ARG, "client-one@client.com", "1154880546",
-                EmailNotificationChannel.getInstance());
+                EmailNotificationChannel.getInstance(), "9 de Julio, Buenos Aires");
         Client clientTwo = new Client(Country.ARG, "client-two@client.com", "1150488073",
-                PhoneNotificationChannel.getInstance());
+                PhoneNotificationChannel.getInstance(), "25 de Mayo, Buenos Aires, Argentina");
 
         clientDAO.insert(clientOne);
         clientDAO.insert(clientTwo);

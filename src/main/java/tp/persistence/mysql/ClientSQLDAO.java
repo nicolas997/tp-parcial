@@ -35,7 +35,10 @@ public class ClientSQLDAO implements ClientDAO {
                         resultSet.getString("phoneNumber"),
                         resultSet.getTimestamp("registrationDate").toInstant(),
                         ResultSetUtils.timestampToInstant(resultSet.getTimestamp("lastPurchaseDate")),
-                        NotificationChannel.fromName(NotificationChannel.NotificationChannelName.valueOf(resultSet.getString("notificationChannel")))
+                        NotificationChannel.fromName(NotificationChannel.NotificationChannelName.valueOf(resultSet.getString("notificationChannel"))),
+                        resultSet.getString("formattedAddress"),
+                        resultSet.getFloat("addressLatitude"),
+                        resultSet.getFloat("addressLongitude")
                 );
 
                 return Optional.of(client);
