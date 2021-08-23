@@ -36,6 +36,14 @@ CREATE TABLE item (
     FOREIGN KEY(compoundId) REFERENCES compoundItem(id)
 );
 
+CREATE TABLE itemComposition (
+    id VARCHAR(255) PRIMARY KEY,
+    baseItemId VARCHAR(255) NULL DEFAULT NULL,
+    compoundId VARCHAR(255) NULL DEFAULT NULL,
+    FOREIGN KEY(compoundId) REFERENCES compoundItem(id),
+    FOREIGN KEY(baseItemId) REFERENCES item(id)
+);
+
 CREATE TABLE purchase (
     id VARCHAR(255) PRIMARY KEY,
     client VARCHAR(255) NOT NULL,
