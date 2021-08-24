@@ -33,6 +33,10 @@ public class Rider implements WithId {
             country, idType, idNumber, email, password, Instant.now());
     }
 
+    public Rider(String id){
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();

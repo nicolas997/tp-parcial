@@ -47,6 +47,10 @@ public class Client implements WithId {
         }
     }
 
+    public Client (String id){
+        this.id = id;
+    }
+
     public void sendNotification(String notificationContent) {
         notificationChannel.sendNotification(this, notificationContent);
     }

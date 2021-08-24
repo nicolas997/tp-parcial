@@ -13,6 +13,7 @@ public class DispatchedStatus extends PurchaseStatus {
     public DispatchedStatus(Purchase purchase) {
         this.purchase = purchase;
     }
+    public DispatchedStatus() {    }
 
     @Override
     public void confirm() {

@@ -1,10 +1,7 @@
 package tp.persistence.mysql;
 
-import tp.model.client.Client;
-import tp.model.client.notification.NotificationChannel;
 import tp.model.items.BaseItem;
 import tp.model.items.CompoundItem;
-import tp.model.utils.Country;
 import tp.model.utils.ResultSetUtils;
 import tp.persistence.repositories.item.BaseItemDAO;
 

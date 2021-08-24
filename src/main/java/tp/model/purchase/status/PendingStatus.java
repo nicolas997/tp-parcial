@@ -13,6 +13,8 @@ public class PendingStatus extends PurchaseStatus {
     public PendingStatus(Purchase purchase) {
         this.purchase = purchase;
     }
+    public PendingStatus() {    }
+
 
     @Override
     public void confirm() {

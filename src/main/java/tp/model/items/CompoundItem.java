@@ -71,4 +71,12 @@ public class CompoundItem extends Item {
         return getName() + " " + getPrice();
     }
 
+    public Item getBaseItem() {
+        return baseItem;
+    }
+
+    public void setBaseItem(Item baseItem) {
+        this.baseItem = baseItem;
+    }
+
 }

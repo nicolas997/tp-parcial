@@ -13,6 +13,7 @@ public class ConfirmedStatus extends PurchaseStatus {
     public ConfirmedStatus(Purchase purchase) {
         this.purchase = purchase;
     }
+    public ConfirmedStatus() {   }
 
     @Override
     public void confirm() {

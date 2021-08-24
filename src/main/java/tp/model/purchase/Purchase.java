@@ -53,6 +53,20 @@ public class Purchase implements PurchaseOperations, WithId {
         }
     }
 
+    public Purchase (String id, Client client, Rider rider, BigDecimal deliveryPrice,
+                     Instant creationDate, Instant confirmationDate, Instant dispatchDate, Instant deliveryDate,
+                     PurchaseStatus purchaseStatus){
+        this.id = id;
+        this.client = client;
+        this.assignedRider = rider;
+        this.deliveryPrice = deliveryPrice;
+        this.creationDate = creationDate;
+        this.confirmationDate = confirmationDate;
+        this.dispatchDate = dispatchDate;
+        this.deliveryDate = deliveryDate;
+        this.status = purchaseStatus;
+    }
+
     public void addObserver(PurchaseObserver observer) {
         PurchaseObserver[] newObservers = new PurchaseObserver[observers.length + 1];
 

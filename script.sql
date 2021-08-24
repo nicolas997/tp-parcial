@@ -56,7 +56,7 @@ CREATE TABLE purchase (
     confirmationDate TIMESTAMP NULL DEFAULT NULL,
     dispatchDate TIMESTAMP NULL DEFAULT NULL,
     deliveryDate TIMESTAMP NULL DEFAULT NULL,
-    status DECIMAL NOT NULL,
+    status VARCHAR(32) NOT NULL DEFAULT 'Pending',
     FOREIGN KEY(client) REFERENCES client(id),
     FOREIGN KEY(rider) REFERENCES rider(id)
 );

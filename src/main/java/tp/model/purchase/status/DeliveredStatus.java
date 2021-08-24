@@ -10,6 +10,7 @@ public class DeliveredStatus extends PurchaseStatus {
     public DeliveredStatus(Purchase purchase) {
         this.purchase = purchase;
     }
+    public DeliveredStatus() {  }
 
     @Override
     public void confirm() {
