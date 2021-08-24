@@ -23,6 +23,7 @@ import tp.persistence.repositories.purchase.PurchaseDAO;
 import tp.persistence.repositories.rider.RiderDAO;
 
 import javax.swing.text.html.Option;
+import java.util.Collection;
 import java.util.Optional;
 
 public class TPApplication {
@@ -32,23 +33,36 @@ public class TPApplication {
         Client clientOne = new Client("juan", Country.ARG, "client-one@client.com", "pw1", "1154880546",
                 EmailNotificationChannel.getInstance(), "9 de Julio, Buenos Aires");
 
-        String clientId = "f71c20ee-576e-41fb-a287-a6bafbe8fafc";
+        String clientId = "c173a883-65fc-4e1a-aaaf-505080acb415";
         ClientDAO dao = new ClientSQLDAO();
 
-        Optional<Client> clientOpt = dao.findById(clientId);
+        //Optional<Client> clientOpt = dao.findById(clientId);
+        //Client client = clientOpt.get();
+        //System.out.println(client);
 
+        Optional<Client> clientOpt = dao.deleteById(clientId);
+
+/*
         if (clientOpt.isPresent()) {
             Client client = clientOpt.get();
             System.out.println(client);
 
-            client.setCountry(Country.URY);
-            dao.update(client);
-            System.out.println(client);
+            //client.setCountry(Country.URY);
+            //dao.update(client);
+            //System.out.println(client);
         } else {
             System.err.println("cannot found client " + clientId);
-        }
+        }*/
 
 
+        //ClientDAO clientDAO               = new ClientSQLDAO();
+        //clientDAO.insert(clientOne);
+
+
+        /*Collection<Client> clients = clientDAO.findAll();
+        for(Client c: clients){
+            System.out.println(c);
+        }*/
 
         /*RiderDAO riderDAO                 = new RiderIMDAO();
         ClientDAO clientDAO               = new ClientIMDAO();

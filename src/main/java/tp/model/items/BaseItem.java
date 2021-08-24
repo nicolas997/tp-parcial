@@ -12,6 +12,8 @@ public class BaseItem extends Item {
     String name;
     BigDecimal price;
 
+    CompoundItem compoundItem;
+
     @Override
     public String getId() {
         return id;
@@ -25,6 +27,10 @@ public class BaseItem extends Item {
     @Override
     public BigDecimal getPrice() {
         return price;
+    }
+
+    public CompoundItem getCompoundItem() {
+        return compoundItem;
     }
 
     @Override

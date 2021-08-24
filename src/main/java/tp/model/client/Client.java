@@ -33,7 +33,7 @@ public class Client implements WithId {
     Float addressLongitude;
 
     public Client (String name, Country country, String email, String password, String phoneNumber, NotificationChannel notificationChannel, String address) {
-        this(name, UUID.randomUUID().toString(), country, email, password, phoneNumber, Instant.now(), null,
+        this(UUID.randomUUID().toString(), name, country, email, password, phoneNumber, Instant.now(), null,
                 notificationChannel, null, null, null);
 
         GoogleGeocodeResult geocodeResult = GoogleApiClient.getInstance().geocodeAddress(address);
@@ -60,6 +60,7 @@ public class Client implements WithId {
         StringBuilder builder = new StringBuilder();
 
         builder.append("Client :: ").append(id).append("\n")
+                .append("Name :: ").append(name).append("\n")
                 .append("Email :: ").append(email).append("\n")
                 .append("Phone :: ").append(phoneNumber).append("\n")
                 .append("Channel :: ").append(getNotificationChannel().getName()).append("\n")

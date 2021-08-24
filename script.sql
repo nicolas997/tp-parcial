@@ -7,7 +7,10 @@ CREATE TABLE client (
     phoneNumber VARCHAR(15) DEFAULT NULL,
     registrationDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     lastPurchaseDate TIMESTAMP NULL DEFAULT NULL,
-    notificationChannel VARCHAR(32) NOT NULL DEFAULT 'email'
+    notificationChannel VARCHAR(32) NOT NULL DEFAULT 'email',
+    formattedAdress VARCHAR(255) NOT NULL,
+    addressLatitude FLOAT NOT NULL,
+    addressLongitude FLOAT NOT NULL
 );
 
 CREATE TABLE rider (
