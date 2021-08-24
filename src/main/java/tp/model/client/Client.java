@@ -5,6 +5,7 @@ import lombok.Data;
 import tp.external.google.GoogleApiClient;
 import tp.external.google.GoogleGeocodeResult;
 import tp.model.client.notification.NotificationChannel;
+import tp.model.system.PASystem;
 import tp.model.utils.Country;
 import tp.model.utils.WithId;
 
@@ -68,6 +69,10 @@ public class Client implements WithId {
 
 
         return builder.toString();
+    }
+
+    public void suscribeToPurchaseWithId(String purchaseId) {
+        PASystem.getInstance().suscribeClientToPurchase(this, purchaseId);
     }
 
 }
