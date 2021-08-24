@@ -31,4 +31,14 @@ public class ClientPurchaseObserver implements PurchaseObserver {
         client.sendNotification("your purchase " + purchase.getId() + " was just delivered by rider " + purchase.getAssignedRider().getFirstName());
     }
 
+    @Override
+    public void checkPurchaseDetails(Purchase purchase){
+
+        System.out.println(purchase.toString());
+    }
+
+
+    @Override
+    public void suscribeClientToPurchase(Client client, Purchase purchase) {}
+
 }

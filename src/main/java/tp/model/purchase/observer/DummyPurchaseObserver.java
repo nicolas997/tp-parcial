@@ -1,5 +1,6 @@
 package tp.model.purchase.observer;
 
+import tp.model.client.Client;
 import tp.model.purchase.Purchase;
 
 public class DummyPurchaseObserver implements PurchaseObserver {
@@ -27,6 +28,17 @@ public class DummyPurchaseObserver implements PurchaseObserver {
     @Override
     public void onPurchaseDelivery(Purchase purchase) {
         System.out.println("purchase " + purchase.getId() + " was just delivered");
+    }
+
+    @Override
+    public void checkPurchaseDetails(Purchase purchase) {
+
+        System.out.println(purchase.toString());
+    }
+    @Override
+    public void suscribeClientToPurchase(Client client, Purchase purchase) {
+
+        purchase.addObserver(client.getPurchaseObserver());
     }
 
 }
