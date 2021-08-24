@@ -8,7 +8,7 @@ import tp.model.purchase.status.DeliveredStatus;
 import tp.model.purchase.status.DispatchedStatus;
 import tp.model.purchase.status.PendingStatus;
 
-public class PurhaseStatusTest extends BaseTest {
+public class PurchaseStatusTest extends BaseTest {
 
 	@Test
 	public void PurchaseStatusPending(){

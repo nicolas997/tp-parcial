@@ -42,13 +42,12 @@ public abstract class BaseTest {
 
 	private void clientsInit() {
 		Client[] newClients = {
-				new Client("Adam", Country.ARG, "adam@gmail.com", "adamPwd", "12345678", EmailNotificationChannel.getInstance()),
-				new Client("Barbara", Country.ARG, "barbara@gmail.com", "barbaraPwd", "87654321", EmailNotificationChannel.getInstance()),
-				new Client("Charles", Country.ARG, "charles@gmail.com", "charlesPwd", "13572468", PhoneNotificationChannel.getInstance()),
-				new Client("Danny", Country.ARG, "danny@gmail.com", "dannyPwd", "24681357", EmailNotificationChannel.getInstance())
+				new Client("Adam", Country.ARG, "adam@gmail.com", "adamPwd", "12345678", EmailNotificationChannel.getInstance()/*, "Hidalgo 1171, Hurlingham, Provincia de Buenos Aires, Argentina"*/),
+				new Client("Barbara", Country.ARG, "barbara@gmail.com", "barbaraPwd", "87654321", EmailNotificationChannel.getInstance()/*, "Corrientes 996, B1832 ELT, Provincia de Buenos Aires, Argentina"*/),
+				new Client("Charles", Country.ARG, "charles@gmail.com", "charlesPwd", "13572468", PhoneNotificationChannel.getInstance()/*, "25 de Mayo 677, B1824NNC Lanús, Provincia de Buenos Aires, Argentina"*/),
+				new Client("Danny", Country.ARG, "danny@gmail.com", "dannyPwd", "24681357", EmailNotificationChannel.getInstance()/*, "Av. Cabildo 272, C1426 AAP, Buenos Aires, Argentina"*/)
 		};
 		Collections.addAll(this.clients, newClients);
-
 	}
 
 	private void ridersInit() {
