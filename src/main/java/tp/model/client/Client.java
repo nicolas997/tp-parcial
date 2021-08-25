@@ -49,6 +49,11 @@ public class Client implements WithId {
         }
     }
 
+    public Client (String name, Country country, String email, String password, String phoneNumber, NotificationChannel notificationChannel) {
+        this(UUID.randomUUID().toString(), name, country, email, password, phoneNumber, Instant.now(), null,
+                notificationChannel, null, null, null);
+    }
+
     public Client (String id){
         this.id = id;
     }
