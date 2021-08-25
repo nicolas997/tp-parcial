@@ -30,41 +30,26 @@ public class TPApplication {
 
     public static void main(String[] args) {
 
+        //Alta de un cliente en la bd
         Client clientOne = new Client("juan", Country.ARG, "client-one@client.com", "pw1", "1154880546",
                 EmailNotificationChannel.getInstance(), "9 de Julio, Buenos Aires");
 
-        String clientId = "c173a883-65fc-4e1a-aaaf-505080acb415";
+        String clientId = clientOne.getId();
+
         ClientDAO dao = new ClientSQLDAO();
+        dao.insert(clientOne);
 
-        //Optional<Client> clientOpt = dao.findById(clientId);
-        //Client client = clientOpt.get();
-        //System.out.println(client);
+        //Muestro un cliente de la bd
+        Optional<Client> clientOpt = dao.findById(clientId);
+        Client client = clientOpt.get();
+        System.out.println(client);
 
-        Optional<Client> clientOpt = dao.deleteById(clientId);
-
-/*
-        if (clientOpt.isPresent()) {
-            Client client = clientOpt.get();
-            System.out.println(client);
-
-            //client.setCountry(Country.URY);
-            //dao.update(client);
-            //System.out.println(client);
-        } else {
-            System.err.println("cannot found client " + clientId);
-        }*/
+        //Borro el cliente de la bd
+        Optional<Client> clientOptTwo = dao.deleteById(clientId);
 
 
-        //ClientDAO clientDAO               = new ClientSQLDAO();
-        //clientDAO.insert(clientOne);
-
-
-        /*Collection<Client> clients = clientDAO.findAll();
-        for(Client c: clients){
-            System.out.println(c);
-        }*/
-
-        /*RiderDAO riderDAO                 = new RiderIMDAO();
+        //Caso de prueba de un pedido
+        RiderDAO riderDAO                 = new RiderIMDAO();
         ClientDAO clientDAO               = new ClientIMDAO();
         BaseItemDAO baseItemDAO           = new BaseItemIMDAO();
         CompoundItemDAO compoundItemDAO   = new CompoundItemIMDAO();
@@ -81,7 +66,7 @@ public class TPApplication {
         riderDAO.insert(riderOne);
         riderDAO.insert(riderTwo);
 
-        Client clientOne = new Client("juan", Country.ARG, "client-one@client.com", "pw1", "1154880546",
+        Client clientThree = new Client("roberto", Country.ARG, "client-one@client.com", "pw1", "1154880546",
                 EmailNotificationChannel.getInstance(), "9 de Julio, Buenos Aires");
         Client clientTwo = new Client("ana", Country.ARG, "client-two@client.com", "pw4", "1150488073",
                 PhoneNotificationChannel.getInstance(), "25 de Mayo, Buenos Aires, Argentina");
@@ -114,7 +99,7 @@ public class TPApplication {
         purchaseOne.dispatch(riderOne);
         purchaseOne.finishDelivery();
 
-        purchaseDAO.insert(purchaseOne);*/
+        purchaseDAO.insert(purchaseOne);
 
     }
 
